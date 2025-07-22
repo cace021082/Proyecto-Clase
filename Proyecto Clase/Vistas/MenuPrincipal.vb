@@ -10,7 +10,7 @@ Imports OfficeOpenXml.FormulaParsing
 Public Class Form1
     Private currentFilePath As String
 
-    Private formulas(,) As String ' Arreglo para almacenar fórmulas
+    Private formulas(,) As String ' Arreglo para almacenar las fórmulas
 
     Private editingCell As DataGridViewCell = Nothing
 
