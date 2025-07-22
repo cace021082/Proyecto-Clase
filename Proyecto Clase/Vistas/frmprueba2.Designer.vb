@@ -43,6 +43,7 @@ Partial Class frmprueba2
         Me.BackgroundImage = Global.Proyecto_Clase.My.Resources.Resources.inicioexcel_
         Me.ClientSize = New System.Drawing.Size(336, 190)
         Me.Controls.Add(Me.PictureBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.MaximizeBox = False

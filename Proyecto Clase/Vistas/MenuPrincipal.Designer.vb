@@ -52,11 +52,11 @@ Partial Class Form1
         Me.PBAyuda = New System.Windows.Forms.PictureBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.BTNAutoSumaS = New System.Windows.Forms.Button()
-        Me.BTNAutoSuma = New System.Windows.Forms.Button()
-        Me.BTNCortar = New System.Windows.Forms.Button()
-        Me.BTNCopiarFormato = New System.Windows.Forms.Button()
-        Me.BTNPegar = New System.Windows.Forms.Button()
         Me.BTNCopiar = New System.Windows.Forms.Button()
+        Me.BTNPegar = New System.Windows.Forms.Button()
+        Me.BTNAutoSuma = New System.Windows.Forms.Button()
+        Me.BTNCopiarFormato = New System.Windows.Forms.Button()
+        Me.BTNCortar = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.btnRedo = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
@@ -80,9 +80,9 @@ Partial Class Form1
         Me.GroupBox1.Controls.Add(Me.PictureBox1)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(11, 11)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Size = New System.Drawing.Size(233, 127)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
@@ -128,11 +128,11 @@ Partial Class Form1
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvhoja1.ColumnHeadersHeight = 34
         Me.dgvhoja1.Location = New System.Drawing.Point(2, 188)
-        Me.dgvhoja1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.dgvhoja1.Margin = New System.Windows.Forms.Padding(2)
         Me.dgvhoja1.Name = "dgvhoja1"
         Me.dgvhoja1.RowHeadersWidth = 62
         Me.dgvhoja1.RowTemplate.Height = 28
-        Me.dgvhoja1.Size = New System.Drawing.Size(1179, 416)
+        Me.dgvhoja1.Size = New System.Drawing.Size(1134, 376)
         Me.dgvhoja1.TabIndex = 1
         '
         'lblcelda
@@ -175,9 +175,9 @@ Partial Class Form1
         Me.GroupBox4.Controls.Add(Me.cbxcolortexto)
         Me.GroupBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox4.Location = New System.Drawing.Point(257, 13)
-        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox4.Size = New System.Drawing.Size(366, 151)
         Me.GroupBox4.TabIndex = 2
         Me.GroupBox4.TabStop = False
@@ -263,7 +263,7 @@ Partial Class Form1
         'txtnumerofuente
         '
         Me.txtnumerofuente.Location = New System.Drawing.Point(147, 95)
-        Me.txtnumerofuente.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtnumerofuente.Margin = New System.Windows.Forms.Padding(2)
         Me.txtnumerofuente.Name = "txtnumerofuente"
         Me.txtnumerofuente.Size = New System.Drawing.Size(83, 22)
         Me.txtnumerofuente.TabIndex = 14
@@ -293,7 +293,7 @@ Partial Class Form1
         Me.cbxtipoletra.FormattingEnabled = True
         Me.cbxtipoletra.Items.AddRange(New Object() {"Arial", "Times New Roman", "Courier New", "Verdana", "Tahoma", "Georgia", "Comic Sans MS", "Impact", "Lucida Console", "Trebuchet MS", "Microsoft Sans Serif"})
         Me.cbxtipoletra.Location = New System.Drawing.Point(147, 66)
-        Me.cbxtipoletra.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cbxtipoletra.Margin = New System.Windows.Forms.Padding(2)
         Me.cbxtipoletra.Name = "cbxtipoletra"
         Me.cbxtipoletra.Size = New System.Drawing.Size(83, 24)
         Me.cbxtipoletra.TabIndex = 11
@@ -303,7 +303,7 @@ Partial Class Form1
         Me.cbxcolorfondo.FormattingEnabled = True
         Me.cbxcolorfondo.Items.AddRange(New Object() {"Blanco", "Amarillo", "Rojo", "Azul", "Verde", "Morado", "Cafe", "Naranja", "Rosado", "Negro"})
         Me.cbxcolorfondo.Location = New System.Drawing.Point(147, 39)
-        Me.cbxcolorfondo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cbxcolorfondo.Margin = New System.Windows.Forms.Padding(2)
         Me.cbxcolorfondo.Name = "cbxcolorfondo"
         Me.cbxcolorfondo.Size = New System.Drawing.Size(83, 24)
         Me.cbxcolorfondo.TabIndex = 10
@@ -333,7 +333,7 @@ Partial Class Form1
         Me.cbxcolortexto.FormattingEnabled = True
         Me.cbxcolortexto.Items.AddRange(New Object() {"Blanco", "Amarillo", "Rojo", "Azul", "Verde", "Morado", "Cafe", "Naranja", "Rosado", "Negro"})
         Me.cbxcolortexto.Location = New System.Drawing.Point(147, 13)
-        Me.cbxcolortexto.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cbxcolortexto.Margin = New System.Windows.Forms.Padding(2)
         Me.cbxcolortexto.Name = "cbxcolortexto"
         Me.cbxcolortexto.Size = New System.Drawing.Size(83, 24)
         Me.cbxcolortexto.TabIndex = 1
@@ -353,10 +353,10 @@ Partial Class Form1
         Me.GroupBox3.Controls.Add(Me.cbxOperaciones)
         Me.GroupBox3.Controls.Add(Me.PBAyuda)
         Me.GroupBox3.Location = New System.Drawing.Point(818, 26)
-        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.GroupBox3.Size = New System.Drawing.Size(140, 138)
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(2)
+        Me.GroupBox3.Size = New System.Drawing.Size(145, 133)
         Me.GroupBox3.TabIndex = 12
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Ayuda"
@@ -367,7 +367,7 @@ Partial Class Form1
         Me.cbxOperaciones.FormattingEnabled = True
         Me.cbxOperaciones.Items.AddRange(New Object() {"Suma", "Resta", "Divicion", "Multiplicación", "Promedio"})
         Me.cbxOperaciones.Location = New System.Drawing.Point(4, 26)
-        Me.cbxOperaciones.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cbxOperaciones.Margin = New System.Windows.Forms.Padding(2)
         Me.cbxOperaciones.Name = "cbxOperaciones"
         Me.cbxOperaciones.Size = New System.Drawing.Size(123, 21)
         Me.cbxOperaciones.TabIndex = 0
@@ -394,9 +394,9 @@ Partial Class Form1
         Me.GroupBox2.Controls.Add(Me.BTNCortar)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(641, 18)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Size = New System.Drawing.Size(172, 146)
         Me.GroupBox2.TabIndex = 21
         Me.GroupBox2.TabStop = False
@@ -413,38 +413,16 @@ Partial Class Form1
         Me.BTNAutoSumaS.Text = "Auto S.S"
         Me.BTNAutoSumaS.UseVisualStyleBackColor = False
         '
-        'BTNAutoSuma
+        'BTNCopiar
         '
-        Me.BTNAutoSuma.BackColor = System.Drawing.Color.SlateGray
-        Me.BTNAutoSuma.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTNAutoSuma.Location = New System.Drawing.Point(80, 53)
-        Me.BTNAutoSuma.Name = "BTNAutoSuma"
-        Me.BTNAutoSuma.Size = New System.Drawing.Size(80, 27)
-        Me.BTNAutoSuma.TabIndex = 25
-        Me.BTNAutoSuma.Text = "Auto S.G"
-        Me.BTNAutoSuma.UseVisualStyleBackColor = False
-        '
-        'BTNCortar
-        '
-        Me.BTNCortar.BackColor = System.Drawing.Color.SlateGray
-        Me.BTNCortar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTNCortar.Location = New System.Drawing.Point(80, 21)
-        Me.BTNCortar.Name = "BTNCortar"
-        Me.BTNCortar.Size = New System.Drawing.Size(80, 27)
-        Me.BTNCortar.TabIndex = 24
-        Me.BTNCortar.Text = "Cortar"
-        Me.BTNCortar.UseVisualStyleBackColor = False
-        '
-        'BTNCopiarFormato
-        '
-        Me.BTNCopiarFormato.BackColor = System.Drawing.Color.SlateGray
-        Me.BTNCopiarFormato.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTNCopiarFormato.Location = New System.Drawing.Point(5, 115)
-        Me.BTNCopiarFormato.Name = "BTNCopiarFormato"
-        Me.BTNCopiarFormato.Size = New System.Drawing.Size(150, 26)
-        Me.BTNCopiarFormato.TabIndex = 23
-        Me.BTNCopiarFormato.Text = "Copiar Formato"
-        Me.BTNCopiarFormato.UseVisualStyleBackColor = False
+        Me.BTNCopiar.BackColor = System.Drawing.Color.SlateGray
+        Me.BTNCopiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BTNCopiar.Location = New System.Drawing.Point(5, 20)
+        Me.BTNCopiar.Name = "BTNCopiar"
+        Me.BTNCopiar.Size = New System.Drawing.Size(75, 28)
+        Me.BTNCopiar.TabIndex = 21
+        Me.BTNCopiar.Text = "Copiar"
+        Me.BTNCopiar.UseVisualStyleBackColor = False
         '
         'BTNPegar
         '
@@ -457,16 +435,38 @@ Partial Class Form1
         Me.BTNPegar.Text = "Pegar"
         Me.BTNPegar.UseVisualStyleBackColor = False
         '
-        'BTNCopiar
+        'BTNAutoSuma
         '
-        Me.BTNCopiar.BackColor = System.Drawing.Color.SlateGray
-        Me.BTNCopiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTNCopiar.Location = New System.Drawing.Point(5, 20)
-        Me.BTNCopiar.Name = "BTNCopiar"
-        Me.BTNCopiar.Size = New System.Drawing.Size(75, 28)
-        Me.BTNCopiar.TabIndex = 21
-        Me.BTNCopiar.Text = "Copiar"
-        Me.BTNCopiar.UseVisualStyleBackColor = False
+        Me.BTNAutoSuma.BackColor = System.Drawing.Color.SlateGray
+        Me.BTNAutoSuma.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BTNAutoSuma.Location = New System.Drawing.Point(80, 53)
+        Me.BTNAutoSuma.Name = "BTNAutoSuma"
+        Me.BTNAutoSuma.Size = New System.Drawing.Size(80, 27)
+        Me.BTNAutoSuma.TabIndex = 25
+        Me.BTNAutoSuma.Text = "Auto S.G"
+        Me.BTNAutoSuma.UseVisualStyleBackColor = False
+        '
+        'BTNCopiarFormato
+        '
+        Me.BTNCopiarFormato.BackColor = System.Drawing.Color.SlateGray
+        Me.BTNCopiarFormato.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BTNCopiarFormato.Location = New System.Drawing.Point(5, 115)
+        Me.BTNCopiarFormato.Name = "BTNCopiarFormato"
+        Me.BTNCopiarFormato.Size = New System.Drawing.Size(150, 26)
+        Me.BTNCopiarFormato.TabIndex = 23
+        Me.BTNCopiarFormato.Text = "Copiar Formato"
+        Me.BTNCopiarFormato.UseVisualStyleBackColor = False
+        '
+        'BTNCortar
+        '
+        Me.BTNCortar.BackColor = System.Drawing.Color.SlateGray
+        Me.BTNCortar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BTNCortar.Location = New System.Drawing.Point(80, 21)
+        Me.BTNCortar.Name = "BTNCortar"
+        Me.BTNCortar.Size = New System.Drawing.Size(80, 27)
+        Me.BTNCortar.TabIndex = 24
+        Me.BTNCortar.Text = "Cortar"
+        Me.BTNCortar.UseVisualStyleBackColor = False
         '
         'Label6
         '
@@ -509,7 +509,7 @@ Partial Class Form1
         Me.Controls.Add(Me.GroupBox1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ExceL Proyect"

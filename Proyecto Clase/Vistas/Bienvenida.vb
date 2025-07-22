@@ -173,7 +173,7 @@ Public Class Bienvenida
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        Dim pdfPath As String = "C:\Users\PJL\Desktop\II Trimestre 2025\Analisis de Algoritmo\Cabrera_Carlos_Ac II.pdf"
+        Dim pdfPath As String = "C:\Users\PJL\Desktop\II Trimestre 2025\Teoria de la Computacion\Proyecto\Manual de usuario.pdf"
         If System.IO.File.Exists(pdfPath) Then
             Try
                 Process.Start(pdfPath)
