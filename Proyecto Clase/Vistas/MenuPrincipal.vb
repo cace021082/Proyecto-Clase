@@ -8,15 +8,52 @@ Imports OfficeOpenXml.FormulaParsing
 
 
 Public Class Form1
-    Private currentFilePath As String
 
-    Private formulas(,) As String ' Arreglo para almacenar las fórmulas
 
-    Private editingCell As DataGridViewCell = Nothing
+
+    ' ***************************************************************************
+
+
+
+
+
+    ' Deshacer/Rehacer Múltiples Cambios de Celda
+
+    Public Class frmprueba2 ' O el nombre de tu formulario
+
+        ' --- Variables para el sistema de Deshacer/Rehacer ---
+        Private undoStack As New Stack(Of Action)()
+        Private redoStack As New Stack(Of Action)()
+
+        ' Variable temporal para almacenar el valor original de la celda antes de la edición
+        Private originalCellValue As Object = Nothing
+
+        ' Bandera para evitar que los eventos de cambio se disparen infinitamente
+        ' cuando estamos deshaciendo o rehaciendo
+        Private isUndoingOrRedoing As Boolean = False
+
+        ' ... el resto de tu código del formulario ...
+
+
+
+    End Class
+
+    ' Variables para el sistema de Deshacer/Rehacer
+
+
+    '*************** MODIFICANDO*********************
+    Public currentFilePath As String
+
+    Public formulas(,) As String ' Arreglo para almacenar las fórmulas
+
+    Public editingCell As DataGridViewCell = Nothing
 
     Public rutaArchivo As String ' Variable para recibir la ruta
-    Public Sub columnas()
 
+
+    '**************************************************
+    Public Sub columnas()
+        ' AGREGAR COLUMNAS AL DATAGRIDVIEW
         Dim letras As String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
         For i As Integer = 0 To 25
@@ -24,8 +61,8 @@ Public Class Form1
             dgvhoja1.Columns.Add(columnaNombre, columnaNombre)
         Next
 
-
     End Sub
+
     Public Sub filas()
 
         ' Añadir filas y actualizar el índice de cada una
@@ -34,25 +71,31 @@ Public Class Form1
 
         Next
 
-
     End Sub
+    '********************************************************************************
+
+    ' ******************************************INICIO DE LAS OPERACIONES***************************************
 
 
-    'LAS OPERACIONES ARITMETICAS'
 
     Public Sub Operaciones()
-        Dim operacion As String
-        operacion = cbxOperaciones.Text
-
+        Dim operacion As String = cbxOperaciones.Text
         Dim resultado As Double = If(operacion = "Multiplicación", 1, 0)
         Dim valorCelda As Double
-        Dim seleccionadas As String = "Celdas seleccionadas:" & vbCrLf
         Dim contador As Integer = 0
+        Dim filasSeleccionadas As New HashSet(Of Integer)
+        Dim columnasSeleccionadas As New HashSet(Of Integer)
 
+        If dgvhoja1.SelectedCells.Count = 0 Then
+            MessageBox.Show("Seleccione al menos una celda con valores numéricos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
+
+        ' Acumular valores según operación
         For Each celda As DataGridViewCell In dgvhoja1.SelectedCells
-            seleccionadas &= "Fila: " & celda.RowIndex & " Columna: " & celda.ColumnIndex & vbCrLf
+            filasSeleccionadas.Add(celda.RowIndex)
+            columnasSeleccionadas.Add(celda.ColumnIndex)
 
-            ' Intentar convertir el valor de la celda a un número
             If Double.TryParse(celda.Value.ToString(), valorCelda) Then
                 contador += 1
                 Select Case operacion
@@ -68,63 +111,73 @@ Public Class Form1
                         resultado *= valorCelda
                     Case "Promedio"
                         resultado += valorCelda
-
                 End Select
             Else
                 MessageBox.Show("La celda en Fila: " & celda.RowIndex & " Columna: " & celda.ColumnIndex & " no contiene un valor numérico.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Return
+                Exit Sub
             End If
         Next
 
-
-
         If operacion = "Promedio" And contador > 0 Then
             resultado /= contador
-
         End If
 
-        If operacion = "Divicion" And contador > 0 Then
-
+        ' División especial: solo si hay 2 celdas seleccionadas
+        If operacion = "Divicion" Then
             If dgvhoja1.SelectedCells.Count <> 2 Then
-                MessageBox.Show("Por favor, selecciona exactamente dos celdas para realizar la división.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Return
+                MessageBox.Show("Seleccione exactamente dos celdas para la división.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
             End If
 
-            Dim valor1 As Double
-            Dim valor2 As Double
-            Dim celda1 As DataGridViewCell = dgvhoja1.SelectedCells(0)
-            Dim celda2 As DataGridViewCell = dgvhoja1.SelectedCells(1)
+            Dim valor1, valor2 As Double
+            Dim celda1 = dgvhoja1.SelectedCells(0)
+            Dim celda2 = dgvhoja1.SelectedCells(1)
 
-            seleccionadas &= "Fila: " & celda1.RowIndex & " Columna: " & celda1.ColumnIndex & vbCrLf
-            seleccionadas &= "Fila: " & celda2.RowIndex & " Columna: " & celda2.ColumnIndex & vbCrLf
-
-
-            ' Intentar convertir el valor de las celdas a números
-
-
-            If Not Double.TryParse(celda1.Value.ToString(), valor1) Then
-                MessageBox.Show("La celda en Fila: " & celda1.RowIndex & " Columna: " & celda1.ColumnIndex & " no contiene un valor numérico.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Return
-            End If
-
-            If Not Double.TryParse(celda2.Value.ToString(), valor2) Then
-                MessageBox.Show("La celda en Fila: " & celda2.RowIndex & " Columna: " & celda2.ColumnIndex & " no contiene un valor numérico.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Return
+            If Not Double.TryParse(celda1.Value.ToString(), valor1) OrElse Not Double.TryParse(celda2.Value.ToString(), valor2) Then
+                MessageBox.Show("Una de las celdas no tiene un valor numérico válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
             End If
 
             If valor2 = 0 Then
-                MessageBox.Show("La división por cero no está permitida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Return
+                MessageBox.Show("No se puede dividir entre cero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
             End If
 
-            Dim division As Double = valor1 / valor2
-            resultado = division
+            resultado = valor1 / valor2
+            filasSeleccionadas.Clear()
+            columnasSeleccionadas.Clear()
+            filasSeleccionadas.Add(celda1.RowIndex)
+            columnasSeleccionadas.Add(celda1.ColumnIndex)
         End If
 
-        seleccionadas &= vbCrLf & "Resultado de " & operacion & ": " & resultado
-        MessageBox.Show(seleccionadas)
+        ' Determinar celda de destino igual que en BTNAutoSumaS_Click
+        Dim filaDestino As Integer
+        Dim columnaDestino As Integer
 
+        If filasSeleccionadas.Count = 1 Then
+            filaDestino = filasSeleccionadas.First()
+            columnaDestino = columnasSeleccionadas.Max() + 1
+
+            If columnaDestino >= dgvhoja1.ColumnCount Then
+                dgvhoja1.Columns.Add("Columna" & columnaDestino, "Columna " & columnaDestino)
+            End If
+        ElseIf columnasSeleccionadas.Count = 1 Then
+            filaDestino = filasSeleccionadas.Max() + 1
+            columnaDestino = columnasSeleccionadas.First()
+
+            If filaDestino >= dgvhoja1.RowCount Then
+                dgvhoja1.Rows.Add()
+            End If
+        Else
+            MessageBox.Show("Seleccione valores en una única fila o columna.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
+
+        ' Mostrar resultado en la celda de destino
+        dgvhoja1.Rows(filaDestino).Cells(columnaDestino).Value = resultado
     End Sub
+
+    ' ******************************************FINAL DE LAS OPERACIONES***************************************
 
     Private Function ReplaceCellReferences(match As Match) As String
         Dim cellName As String = match.Value
@@ -172,7 +225,7 @@ Public Class Form1
     End Function
 
 
-    ' ´FUNCION PARA EVALUAR LA FORMULA SUMA
+    ' FUNCION PARA EVALUAR LA FORMULA SUMA
 
     Private Function EvaluateSumFormula(formula As String) As Double
         Dim pattern As String = "=SUMA\(([A-Z]+\d+):([A-Z]+\d+)\)"
@@ -485,7 +538,17 @@ Public Class Form1
         End If
     End Sub
 
+
+    '************************************************************************************************
+
+
+
+
+    '**********************************************************************************************
+
+
     Private Sub dgvhoja1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvhoja1.CellClick
+
         Dim rowIndex As Integer = e.RowIndex
         Dim columnIndex As Integer = e.ColumnIndex
 
@@ -525,6 +588,14 @@ Public Class Form1
 
             MessageBox.Show("Formato aplicado correctamente.", "Formato Aplicado", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
+
+        '****************************** Modificando****************************
+
+
+
+
+
+
     End Sub
 
 
@@ -1930,13 +2001,27 @@ Public Class Form1
 
         ' Guardar el nuevo valor en Tag para futuros cambios
         dgvhoja1.Rows(fila).Cells(columna).Tag = valorNuevo
+
+
+
+
+
+
+
     End Sub
+
+    ' FUNCIÓN PARA MANEJAR LAS OPERACIONES SELECCIONADAS EN EL COMBOBOX LLAMANDO OPERACIONES
 
     Private Sub cbxOperaciones_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxOperaciones.SelectedIndexChanged
 
+        Operaciones()
     End Sub
 
     Private Sub GroupBox3_Enter(sender As Object, e As EventArgs) Handles GroupBox3.Enter
+
+    End Sub
+
+    Private Sub PBAyuda_ChangeUICues(sender As Object, e As UICuesEventArgs) Handles PBAyuda.ChangeUICues
 
     End Sub
 End Class

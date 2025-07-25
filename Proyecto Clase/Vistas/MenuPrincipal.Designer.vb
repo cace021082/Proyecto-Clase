@@ -48,6 +48,7 @@ Partial Class Form1
         Me.cbxcolortexto = New System.Windows.Forms.ComboBox()
         Me.lblnumero = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.btnRedo = New System.Windows.Forms.Button()
         Me.cbxOperaciones = New System.Windows.Forms.ComboBox()
         Me.PBAyuda = New System.Windows.Forms.PictureBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -58,7 +59,6 @@ Partial Class Form1
         Me.BTNCopiarFormato = New System.Windows.Forms.Button()
         Me.BTNCortar = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.btnRedo = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PBGuardarComo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -359,8 +359,19 @@ Partial Class Form1
         Me.GroupBox3.Size = New System.Drawing.Size(145, 133)
         Me.GroupBox3.TabIndex = 12
         Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Ayuda"
-        Me.GroupBox3.Visible = False
+        Me.GroupBox3.Text = "Operaciones Aritmeticas"
+        '
+        'btnRedo
+        '
+        Me.btnRedo.BackColor = System.Drawing.Color.SlateGray
+        Me.btnRedo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRedo.Location = New System.Drawing.Point(1092, 13)
+        Me.btnRedo.Name = "btnRedo"
+        Me.btnRedo.Size = New System.Drawing.Size(43, 31)
+        Me.btnRedo.TabIndex = 22
+        Me.btnRedo.Text = "K"
+        Me.btnRedo.UseVisualStyleBackColor = False
+        Me.btnRedo.Visible = False
         '
         'cbxOperaciones
         '
@@ -371,7 +382,6 @@ Partial Class Form1
         Me.cbxOperaciones.Name = "cbxOperaciones"
         Me.cbxOperaciones.Size = New System.Drawing.Size(123, 21)
         Me.cbxOperaciones.TabIndex = 0
-        Me.cbxOperaciones.Visible = False
         '
         'PBAyuda
         '
@@ -478,18 +488,6 @@ Partial Class Form1
         Me.Label6.Size = New System.Drawing.Size(23, 13)
         Me.Label6.TabIndex = 22
         Me.Label6.Text = "FX:"
-        '
-        'btnRedo
-        '
-        Me.btnRedo.BackColor = System.Drawing.Color.SlateGray
-        Me.btnRedo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRedo.Location = New System.Drawing.Point(920, 98)
-        Me.btnRedo.Name = "btnRedo"
-        Me.btnRedo.Size = New System.Drawing.Size(27, 31)
-        Me.btnRedo.TabIndex = 22
-        Me.btnRedo.Text = "K"
-        Me.btnRedo.UseVisualStyleBackColor = False
-        Me.btnRedo.Visible = False
         '
         'Form1
         '

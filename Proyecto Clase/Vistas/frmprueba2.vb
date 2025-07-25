@@ -1,5 +1,7 @@
 ﻿Public Class frmprueba2
 
+
+
     Private Async Sub frmprueba2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Aquí puedes agregar cualquier código adicional que necesites para configurar tu ventana de carga.
 
